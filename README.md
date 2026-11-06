@@ -4,7 +4,7 @@
 **Student:** Vinayak Singhal (2026AJ05351)
 
 - **GitHub repository:** https://github.com/VinayakSinghal25/2026AJ05351-ML-Assignment-2
-- **Live Streamlit app:** _link added after deployment_
+- **Live Streamlit app:** https://2026aj05351-ml-assignment-2.streamlit.app
 
 ---
 
