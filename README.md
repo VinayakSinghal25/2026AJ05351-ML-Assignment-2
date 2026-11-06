@@ -1,6 +1,7 @@
 # Predicting Student Dropout and Academic Success
 
 **BITS Pilani WILP · M.Tech (AIML) · Machine Learning: Assignment 2**
+
 **Student:** Vinayak Singhal (2026AJ05351)
 
 - **GitHub repository:** https://github.com/VinayakSinghal25/2026AJ05351-ML-Assignment-2
@@ -90,12 +91,12 @@ are weighted averages over the three classes; **MCC** is the multi-class Matthew
 
 | ML Model Name | Observation about model performance |
 |---|---|
-| Logistic Regression | The best model here. It has the highest score on all six metrics (Accuracy 0.774, AUC 0.900, F1 0.764, MCC 0.625). The strongest clues in this data (how many subjects a student passed and their grades in the 1st and 2nd semester) go up or down fairly steadily with the final outcome, and a simple linear model captures that well. It correctly finds 214 of the 284 dropouts. Like every model, it finds the "Enrolled" group hard (only 65 of 159 correct). |
-| Decision Tree | Middle of the table (Accuracy 0.733, MCC 0.565). Its big plus is that its rules are easy to read and explain. Limiting the depth to 7 stops it from simply memorising the training data. It is the best of the five at spotting "Enrolled" students (75 of 159), but it gets more Graduates and Dropouts wrong than Logistic Regression. Its AUC (0.869) is lower because a tree gives rough, step-like probabilities. |
-| KNN | Accuracy 0.723 but a weaker F1 (0.700) and MCC (0.540). It leans heavily towards the biggest class: it gets 421 of 442 Graduates right but only 41 of 159 Enrolled students, the worst of all models for that group. After one-hot encoding there are many columns, so "distance" between students becomes less meaningful, which hurts KNN. |
+| Logistic Regression | The best model here. It has the highest score on all six metrics (Accuracy 0.774, AUC 0.900, F1 0.764, MCC 0.625). The strongest clue in this data is how many subjects a student passed in the 2nd semester (on average about 2 for Dropouts, 4 for Enrolled and 6 for Graduates). It rises steadily from one outcome to the next, and a simple linear model captures that kind of pattern well. It correctly finds 214 of the 284 dropouts. Like every model, it finds the "Enrolled" group hard (only 65 of 159 correct). |
+| Decision Tree | Middle of the table (Accuracy 0.733, MCC 0.565). Its big plus is that its rules are easy to read and explain. Limiting the depth to 7 stops it from simply memorising the training data. It is the best of the five at spotting "Enrolled" students (75 of 159), but it gets more Graduates and Dropouts wrong than Logistic Regression. Its AUC (0.868) is lower because a tree gives rough, step-like probabilities. |
+| KNN | Accuracy 0.723 but a weaker F1 (0.700) and MCC (0.540). It leans heavily towards the biggest class: it gets 421 of 442 Graduates right but only 41 of 159 Enrolled students, the worst of all models for that group. After one-hot encoding there are 132 columns, so "distance" between students becomes less meaningful, which hurts KNN. |
 | Naive Bayes | The weakest model (Accuracy 0.689, MCC 0.488). It assumes every feature is independent and bell-shaped, which is not true here: 1st- and 2nd-semester results are closely linked, and many columns are just 0/1. It only worked properly after raising `var_smoothing` to 0.1; with the default setting it scored about 28 % accuracy. It is very fast and simple, but the least reliable. |
 | Support Vector Machine | A close second (Accuracy 0.758, MCC 0.599). Its AUC (0.899) is almost the same as Logistic Regression, so it ranks students by risk just as well, but its final class choices are slightly less accurate. It handles many features well, but it is slower to train and harder to explain. |
-| **Overall winner for this dataset** | **Logistic Regression.** It is the top model on every metric, and it is also the simplest, fastest and easiest to explain. SVM is a close second. Across all models the "Enrolled" class is the hardest to predict, because these students sit between dropping out and graduating and look similar to both groups. |
+| **Overall winner for this dataset** | **Logistic Regression.** It is the top model on every metric, and it is also simple, quick to train and easy to explain. SVM is a close second. Across all models the "Enrolled" class is the hardest to predict, because these students sit between dropping out and graduating and look similar to both groups. |
 
 ---
 
